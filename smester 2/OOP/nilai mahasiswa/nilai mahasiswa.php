@@ -53,77 +53,65 @@
         </div>
     </nav>
     <br>
-    <div classs="container">
-        <div class="container-fluid">
-            <div>
-                <p>Show Entries</p>
-                <input type="number">
-                <form class="d-flex float-end">
-                    <input clas="form-control me-2" type="search" placeholder="search" aria-label="search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+    <h2>Form Nilai Ujian</h2>
+    <br>
+    <form method="post" action="">
+        <div class="container">
+            <div class="container-fluid">
+                <form>
+                    <div class="form-group row">
+                        <label for="nim" class="col-4 c0l-form-label">NIM</label>
+                        <div class="c0l-8">
+                        <div class="input-group">
+                            <div classs="input-group-prepend">
+                            <div classs="input-group-text">
+                                <i class="fa fa-address-card"></i>
+                            </div>
+                            </div>
+                            <input id="nim" name="nim" type="number" class="form-control">
+                        </div>
+                        </div>
+                    </div>
+                    <div classs="form-group row">
+                        <label for="nim" class="col-4 c0l-form-label">Mata Kuliah</label>
+                        <div class="c0l-8">
+                            <select id="matakuliah" name="matakuliah" class="suctom-select"></select>
+                            <option value="matematika">matematika</option>
+                            <option value="bahasa1">bahasa inggris</option>
+                            <option value="bahasa2">bahasa indonesia</option>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nim" class="col-4 c0l-form-label">Nilai</label>
+                        <div class="c0l-8">
+                        <input id="nilai" name="nilai" type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nim" class="col-4 c0l-form-label">Nilai</label>
+                        <div class="c0l-8">
+                        <button name="submit" type="submit" class="btn btn-primary">submit</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
-    </div>
-    <br>
-    <?php
-        require_once 'class-mahasiswa1.php';
-            $mahasiswa1 = new mahasiswa ("02011", "faiz fikri");
-            $mahasiswa1->prodi = "TI";
-            $mahasiswa1->thn_angkatan=2012;
-            $mahasiswa1->ipk=3.8;
+    </form>
+    <div class="m-5 border border-primary p-4 rounded">
+        <?php
+            require_once 'class mahasiswa.php';
 
-            $mahasiswa2 = new mahasiswa ("02012", "allisa khairunisa");
-            $mahasiswa2->prodi = "TI";
-            $mahasiswa2->thn_angkatan=2012;
-            $mahasiswa2->ipk=3.9;
-
-            $mahasiswa3 = new mahasiswa ("02011", "rosalie naurah");
-            $mahasiswa3->prodi = "SI";
-            $mahasiswa3->thn_angkatan=2010;
-            $mahasiswa3->ipk=3.46;
-
-            $mahasiswa4 = new mahasiswa ("02011", "defgi muhammad");
-            $mahasiswa4->prodi = "SI";
-            $mahasiswa4->thn_angkatan=2010;
-            $mahasiswa4->ipk=3.2;
-
-            $array_mahasiswa = [$mahasiswa1, $mahasiswa2, $mahasiswa3, $mahasiswa4];
-    ?>
-
-    <div class="container">
-        <div class="align-items-center" style="padding: 70px;">
-            <table id="example" class="display" style="border: 2px solid black;">
-                <thead>
-                    <tr class="bg-primarry">
-                        <th>NO</th>
-                        <th>NIM</th>
-                        <th>NAMA</th>
-                        <th>PRODI</th>
-                        <th>ANGKATAN</th>
-                        <th>IPK</th>
-                        <th>PREDIKAT</th>
-                        <th>ACTION</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $counter = 1;
-                        foreach ($array_mhs as $mahasiswa){
-                            echo '<tr><td>'.$counter.'</td>'.
-                                '<td>'.$mahasiswa->nim.'</td>'.
-                                '<td>'.$mahasiswa->nama.'</td>'.
-                                '<td>'.$mahasiswa->prodi.'</td>'.
-                                '<td>'.$mahasiswa->thn_angkatan.'</td>'.
-                                '<td>'.$mahasiswa->ipk.'</td>'.
-                                '<td>'.$mahasiswa->predikat_ipk().'</td>'.
-                                '<td><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="padding-right:15%; color:#158CBA;"></span><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#158CBA;"></span></td>';
-                                $counter++;
-                        }
-                    ?>
-                </tbody>
-            </table>
-        </div>
+            $Mahasiswa = new nilai_mahasiswa ($_POST['Nim'], $_POST['Matakuliah'], $_POST['Nilai']);
+            if(isset($_POST['submit']))
+            {
+                echo "<hr>";
+                echo "nim : ".$Nim=$_POST['nim'];
+                echo "<br>matakuliah : ".$Matakuliah=$_POST['matakuliah'];
+                echo "<br>nilai : ".$Nilai=$_POST['nilai'];
+                echo "<br>hasil ujian : ".$Mahasiswa->grade();
+                echo "<br>grade : ".$Mahasiswa->hasil();
+            }
+        ?>
     </div>
     <footer class="bg-dark text-white fixed-bottom">
         <div class="text-center p-2" style="background-color: rgb(3, 0, 0);">
@@ -132,5 +120,4 @@
             </div>
         </div>
     </footer>
-</body>
 </html>

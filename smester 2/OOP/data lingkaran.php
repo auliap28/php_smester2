@@ -1,6 +1,6 @@
 <?php
 require_once "class lingkaran.php"
-echo "nilai PHI".lingkaran::PHI;
+echo "nilai PHI : ".lingkaran::PHI.;
 $lingkar1 = new lingkaran (10);
 $lingkar2 = new lingkaran (4);
 

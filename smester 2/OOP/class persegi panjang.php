@@ -1,13 +1,11 @@
 <?php
-class persegi_panjang {
-    private ($panjang);
-    private ($lebar);
-    function__construct ($p)
+class persegi_panjang
+ {
+    public $panjang;
+    public $lebar;
+    function __construct ($panjang, $lebar)
     {
         $thin->panjang = $p;
-    }
-    function__construct ($l)
-    {
         $thin->lebar = $l;
     }
     function getluas ()

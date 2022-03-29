@@ -1,22 +1,47 @@
 <?php
-    class mahasiswa{
-        var $Nim;
-        var $Nama;
-        var $Angkatan;
-        var $Prodi;
-        var $Ipk;//this
+class mahasiswa
+{
+    var $Nim;
+    var $Nama;
+    var $Angkatan;
+    var $Prodi;
+    var $Ipk;
 
-        function__construct($Nim,$Nama,$Ipk){
-            $this->Nim - $Nim;
-            $this->Nama - $Nama;
-            $this->Ipk - $Ipk;
-        }
+    function __construct($Nim, $Nama, $Ipk)
+    {
+        $this->Nim = $Nim;
+        $this->Nama = $Nama;
+        $this->Ipk = $Ipk;
+    }
 
-        function predikat_ipk(){
-            if($this->Ipk , 2.0) retrun "nim : ".$this->nim."<br> Nama : ".$this->Nama."<br> predikat : cukup";
-            elseif($this->Ipk >= 2.0 && $this->IPk < 3.0) return "Nim : ".$this->Nim."<br> Nama :."$this->Nama : "<br>predikat : Baik";
-            elseif($this->Ipk >= 3.0 && $this->IPk < 3.75) return "Nim : ".$this->Nim."<br> Nama :."$this->Nama : "<br>predikat : Memuaskan";
-            elseif($this->Ipk >= 3.75 && $this->IPk < 4) return "Nim : ".$this->Nim."<br> Nama :."$this->Nama : "<br>predikat : cum laud";
+    function predikat_ipk()
+    { {
+            if ($this->Ipk < 2.0) {
+                return "cukup";
+            } elseif ($this->Ipk >= 2.0 && $this->Ipk < 3.0) {
+                return "Baik";
+            } elseif ($this->Ipk >= 3.0 && $this->Ipk < 3.75) {
+                return "memuaskan";
+            } elseif ($this->Ipk >= 3.75 && $this->Ipk <= 4) {
+                return "Cum Laude";
+            }
         }
     }
-?>
+}
+
+$mahasiswa = new mahasiswa(0, "name", 0);
+
+$mahasiswa->Nim = "0110221103";
+$mahasiswa->Nama = "Putri";
+$mahasiswa->Angkatan = "2021";
+$mahasiswa->Prodi = "TI";
+$mahasiswa->Ipk = 3;
+
+var_dump($mahasiswa);
+
+echo ("Nim :" . $mahasiswa->Nim . "<br>");
+echo ("Nama: " . $mahasiswa->Nama . "<br>");
+echo ("Angkatan: " . $mahasiswa->Angkatan . "<br>");
+echo ("Prodi: " . $mahasiswa->Prodi . "<br>");
+echo ("IPK :" . $mahasiswa->Ipk . "<br>");
+echo ("Predikat :" . $mahasiswa->predikat_ipk());

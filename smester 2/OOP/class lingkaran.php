@@ -1,8 +1,9 @@
 <?php
-    class lingkaran {
+    class lingkaran 
+    {
         private ($jari);
         const PHI = 3.14;
-        function__construct ($r)
+        function __construct ($r)
         {
             $thin->jari = $r;
         }
